@@ -12,7 +12,7 @@ Within advanced bios settings we must enable IR !!
 
 ### detect IR events
 
-on host run command and then try remote.
+on container or in host run command and then try remote.
 
 ```
 mode2 --driver default --device /dev/lirc0
@@ -30,7 +30,7 @@ systemctl stop lircd
 irrecord --list-namespace
 
 # configure new remote control (-f = raw)
-irrecord -d /dev/lirc0 -h default -f ~/RC_XXXX_raw.conf
+irrecord -d /dev/lirc0 -H default -f ~/RC_XXXX_raw.conf
 
 # convert the raw configuration to normal
 # check the contents of the produced file
@@ -39,10 +39,14 @@ irrecord -a ~/RC_XXXX_raw.conf  > ~/RC_XXXX.conf
 # copy the RC_XXXX.conf to folder ~/RC_XXXX.conf
 cp ~/RC_XXXX.conf  /etc/lirc/lircd.conf.d
 
-# restart LIRC daemon
-systemctl start lircd
+# give everyone read permission to RC_XXXX.conf
+chmod a+r  /etc/lirc/lircd.conf.d/RC_XXXX.conf
 
-# test the remote
+# start lirc daemon in container (-e as user root)
+lircd -n -d /dev/lirc0 -H default -e 0
+# systemctl start lircd
+
+# test the remote by running command in container
 irw
 
 ```
