@@ -1,10 +1,10 @@
 version: "3.7"
 services:
-  lirc:
-    build: lirc
+  centos:
+    build: centos
     network_mode: host 
     privileged: true
-  test:
-    build: test
+  alpine:
+    build: alpine
     network_mode: host 
     privileged: true
