@@ -92,6 +92,7 @@ irw
 
 ## 5. Links
 
+* https://www.phidgets.com/docs/IR_Remote_Control_Primer
 * https://www.sbprojects.net/knowledge/ir/index.php
 * http://lirc-remotes.sourceforge.net/remotes-table.html
 * https://mauricius.dev/configure-an-infrared-remote-control-with-linux/
