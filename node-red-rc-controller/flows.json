@@ -51,5 +51,44 @@
         "x": 470,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "dd6aff29.bea9f",
+        "type": "daemon",
+        "z": "98f04e36.3a6d",
+        "name": "cat out",
+        "command": "cat",
+        "args": "/var/lirc_raw_data/lirc0_events",
+        "autorun": true,
+        "cr": false,
+        "redo": true,
+        "op": "lines",
+        "closer": "SIGKILL",
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "f3583679.ec0d38"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f3583679.ec0d38",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 120,
+        "wires": []
     }
 ]

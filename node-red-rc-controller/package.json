@@ -1,5 +1,7 @@
 {
-    "dependencies": {},
+    "dependencies": {
+        "node-red-node-daemon": "0.2.1"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
