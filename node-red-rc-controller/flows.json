@@ -146,7 +146,8 @@
                 "4f74baee.afb814"
             ],
             [
-                "eb0f5023.a7bc7"
+                "eb0f5023.a7bc7",
+                "d9963875.299d18"
             ]
         ]
     },
@@ -172,7 +173,7 @@
         "type": "debug",
         "z": "98f04e36.3a6d",
         "name": "valid input",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -182,6 +183,47 @@
         "statusType": "auto",
         "x": 470,
         "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d9963875.299d18",
+        "type": "switch",
+        "z": "98f04e36.3a6d",
+        "name": "",
+        "property": "payload.duration_microsec",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "2000",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "a2a7e6a4.50c168"
+            ]
+        ]
+    },
+    {
+        "id": "a2a7e6a4.50c168",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 380,
         "wires": []
     }
 ]
