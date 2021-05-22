@@ -25,7 +25,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "The Node-red flow is successfully started if you see this message in the system console !",
+        "payload": "node-red-RC-controller flow successfully started",
         "payloadType": "str",
         "x": 180,
         "y": 40,
@@ -64,11 +64,12 @@
         "redo": true,
         "op": "lines",
         "closer": "SIGKILL",
-        "x": 340,
+        "x": 160,
         "y": 140,
         "wires": [
             [
-                "f3583679.ec0d38"
+                "f3583679.ec0d38",
+                "379f349c.70463c"
             ],
             [],
             []
@@ -79,6 +80,81 @@
         "type": "debug",
         "z": "98f04e36.3a6d",
         "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "379f349c.70463c",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "parse input",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "(\t  $splitted:=payload~>$split(' ');\t  $type := $splitted[0];\t  {\t     \"type\":$splitted[0],\t     \"duration_microsec\" : $splitted[1]~>$number()\t  };\t  $is_valid := ($type=\"pulse\") or ($type=\"space\");\t  $is_valid \t  ?{\t     \"type\":$type,\t     \"duration_microsec\" : $splitted[1]~>$number()\t    }\t  :{\t     \"type\": \"invalid\",\t     \"input\": payload\t  }\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 240,
+        "wires": [
+            [
+                "a38879ad.617888"
+            ]
+        ]
+    },
+    {
+        "id": "a38879ad.617888",
+        "type": "switch",
+        "z": "98f04e36.3a6d",
+        "name": "is invalid",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "invalid",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "4f74baee.afb814"
+            ],
+            [
+                "eb0f5023.a7bc7"
+            ]
+        ]
+    },
+    {
+        "id": "4f74baee.afb814",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "invalid input",
         "active": true,
         "tosidebar": true,
         "console": true,
@@ -87,8 +163,25 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
-        "y": 120,
+        "x": 480,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "eb0f5023.a7bc7",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "valid input",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 320,
         "wires": []
     }
 ]
