@@ -1,15 +1,21 @@
 version: "3.7"
+volumes:
+  lirc-raw-data:
 services:
   centos:
     build: centos
     network_mode: host 
     privileged: true
+    volumes:
+      - lirc-raw-data:/var/lirc_raw_data
   alpine:
     build: alpine
     network_mode: host 
     privileged: true
   node-red-rc-controller:
     build: node-red-rc-controller
+    volumes:
+      - lirc-raw-data:/var/lirc_raw_data
     ports:
       - "19880:1880"
     environment:
