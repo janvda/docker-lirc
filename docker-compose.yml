@@ -8,3 +8,10 @@ services:
     build: alpine
     network_mode: host 
     privileged: true
+  node-red-rc-controller:
+    build: node-red-rc-controller
+    ports:
+      - "19880:1880"
+    environment:
+      - NODE_RED_ENABLE_PROJECTS=true  # must be set to true if you want to modify the node-red flow files through node-red editor
+  
