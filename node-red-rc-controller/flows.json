@@ -112,14 +112,16 @@
     {
         "id": "c6f1c674.61d028",
         "type": "ui_tab",
-        "name": "Tab 1",
+        "name": "RC Analysis",
         "icon": "dashboard",
-        "order": 1
+        "order": 1,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "a3f6904d.ff3a4",
         "type": "ui_group",
-        "name": "Group 1",
+        "name": "RC Key Press",
         "tab": "c6f1c674.61d028",
         "order": 1,
         "disp": true,
@@ -153,6 +155,26 @@
         "icon": "fa-table",
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "9e1b54ba.5857b8",
+        "type": "ui_group",
+        "name": "Gap",
+        "tab": "c6f1c674.61d028",
+        "order": 2,
+        "disp": true,
+        "width": "4",
+        "collapse": false
+    },
+    {
+        "id": "b9f27d7f.3c6aa",
+        "type": "ui_group",
+        "name": "col 1",
+        "tab": "c6f1c674.61d028",
+        "order": 3,
+        "disp": true,
+        "width": "4",
+        "collapse": false
     },
     {
         "id": "ee116574.f1f048",
@@ -260,7 +282,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 210,
+        "x": 170,
         "y": 300,
         "wires": [
             [
@@ -288,7 +310,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 200,
+        "x": 160,
         "y": 360,
         "wires": [
             [
@@ -365,7 +387,7 @@
         "type": "debug",
         "z": "98f04e36.3a6d",
         "name": "more than 2 msec",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -417,8 +439,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 1,
-        "x": 210,
-        "y": 500,
+        "x": 170,
+        "y": 460,
         "wires": [
             [
                 "b82c52e5.c504b",
@@ -431,7 +453,7 @@
         "type": "debug",
         "z": "98f04e36.3a6d",
         "name": "end recording",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -439,8 +461,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
-        "y": 500,
+        "x": 440,
+        "y": 460,
         "wires": []
     },
     {
@@ -469,8 +491,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 240,
-        "y": 440,
+        "x": 200,
+        "y": 420,
         "wires": [
             [
                 "964a261d.f4d158"
@@ -503,13 +525,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 230,
-        "y": 560,
+        "x": 190,
+        "y": 540,
         "wires": [
             [
                 "9081eb14.635a68",
                 "d4b684c1.d8d978",
-                "ed46f12.cb0141"
+                "ed46f12.cb0141",
+                "de3e05e0.ed6ba8"
             ]
         ]
     },
@@ -526,8 +549,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 560,
+        "x": 440,
+        "y": 540,
         "wires": []
     },
     {
@@ -549,8 +572,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 500,
-        "y": 600,
+        "x": 440,
+        "y": 580,
         "wires": [
             []
         ]
@@ -561,14 +584,14 @@
         "z": "98f04e36.3a6d",
         "group": "a3f6904d.ff3a4",
         "name": "",
-        "order": 0,
+        "order": 1,
         "width": "40",
         "height": "10",
         "columns": [],
         "outputs": 0,
         "cts": false,
-        "x": 570,
-        "y": 680,
+        "x": 550,
+        "y": 660,
         "wires": []
     },
     {
@@ -590,7 +613,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 260,
+        "x": 320,
         "y": 700,
         "wires": [
             [
@@ -618,8 +641,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 230,
-        "y": 640,
+        "x": 270,
+        "y": 620,
         "wires": [
             [
                 "a9262f1b.e9dd8",
@@ -1553,7 +1576,7 @@
         "type": "debug",
         "z": "98f04e36.3a6d",
         "name": "table row input",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1561,8 +1584,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 760,
+        "x": 560,
+        "y": 700,
         "wires": []
     },
     {
@@ -1570,7 +1593,7 @@
         "type": "debug",
         "z": "98f04e36.3a6d",
         "name": "table column formatting",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1579,7 +1602,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 590,
-        "y": 640,
+        "y": 620,
         "wires": []
     },
     {
@@ -1658,16 +1681,361 @@
         ]
     },
     {
-        "id": "5b5b442e.6a786c",
+        "id": "c7f05df0.17023",
+        "type": "statistics",
+        "z": "98f04e36.3a6d",
+        "name": "gap statistics",
+        "dataSetSize": 0,
+        "inputField": "input",
+        "inputFieldType": "msg",
+        "resultField": "payload",
+        "resultFieldType": "msg",
+        "parameterField": "",
+        "parameterFieldType": "msg",
+        "stripFunction": false,
+        "resultOnly": true,
+        "x": 290,
+        "y": 920,
+        "wires": [
+            [
+                "d714c2d.082664",
+                "c4f17b19.79fb98"
+            ]
+        ]
+    },
+    {
+        "id": "d714c2d.082664",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "gap statistics",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "f98d2046.f8055",
         "type": "change",
         "z": "98f04e36.3a6d",
-        "name": "table column formatting",
+        "name": "gap between sequences",
         "rules": [
             {
                 "t": "set",
-                "p": "ui_control",
+                "p": "input",
                 "pt": "msg",
-                "to": "{\t    \"customHeight\": 18,\t    \"tabulator\": {\t        \"layout\": \"fitColumns\",\t        \"movableColumns\": false,\t        \"index\": \"id\",\t        \"columns\": [\t            {\t                \"title\": \"ID\",\t                \"field\": \"id\",\t                \"formatter\": \"text\",\t                \"headerTooltip\": \"id number act as row index\"\t            },\t            {\t                \"formatterParams\": {\t                    \"outputFormat\": \"HH:mm:ss.SSS\",\t                    \"inputFormat\": \"x\",\t                    \"invalidPlaceholder\": \"(unknown)\"\t                },\t                \"title\": \"Timestamp\",\t                \"field\": \"timestamp\",\t                \"formatter\": \"datetime\",\t                \"headerTooltip\": \"timestamp of last change\"\t            },\t            {\t                \"title\": \"0\",\t                \"field\": \"0\",\t                \"headerTooltip\": \"last cause of reboot (provided by http json request)\"\t            }\t        ]\t    }\t}\t",
+                "to": "/* get duration_microsec of first element in sequence - excluding the first sequence */\t((payload.sequence[0])#$i[$i>0]).duration_microsec",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "size",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 250,
+        "y": 860,
+        "wires": [
+            [
+                "c7f05df0.17023",
+                "a8f63b7c.a39908"
+            ]
+        ]
+    },
+    {
+        "id": "a8f63b7c.a39908",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "sequence gaps",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "c4f17b19.79fb98",
+        "type": "switch",
+        "z": "98f04e36.3a6d",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "size",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "median",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "min",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "max",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 270,
+        "y": 1100,
+        "wires": [
+            [
+                "655b0c34.eeb504"
+            ],
+            [
+                "903f1249.e4011"
+            ],
+            [
+                "8f742bde.401ab8"
+            ],
+            [
+                "8e5b9057.ef482"
+            ]
+        ]
+    },
+    {
+        "id": "6e932bea.f9e894",
+        "type": "ui_text",
+        "z": "98f04e36.3a6d",
+        "group": "9e1b54ba.5857b8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "count",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 890,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "655b0c34.eeb504",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "topic = median",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "median",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 1020,
+        "wires": [
+            [
+                "6e932bea.f9e894",
+                "80351ddd.a9fe9",
+                "3dbce962.2a6dd6"
+            ]
+        ]
+    },
+    {
+        "id": "d1679f0c.90ac7",
+        "type": "ui_text",
+        "z": "98f04e36.3a6d",
+        "group": "9e1b54ba.5857b8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "median",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 900,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "80351ddd.a9fe9",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "gap size",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "903f1249.e4011",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": " set flow.gap_median, topic = min",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gap_median",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "min",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 1080,
+        "wires": [
+            [
+                "d1679f0c.90ac7",
+                "3dbce962.2a6dd6"
+            ]
+        ]
+    },
+    {
+        "id": "3bf9bf66.966be",
+        "type": "link in",
+        "z": "98f04e36.3a6d",
+        "name": "gap statistics",
+        "links": [
+            "3dbce962.2a6dd6",
+            "32895f4d.f13a8"
+        ],
+        "x": 155,
+        "y": 920,
+        "wires": [
+            [
+                "c7f05df0.17023"
+            ]
+        ]
+    },
+    {
+        "id": "3dbce962.2a6dd6",
+        "type": "link out",
+        "z": "98f04e36.3a6d",
+        "name": "to gap statistics",
+        "links": [
+            "3bf9bf66.966be"
+        ],
+        "x": 755,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "8f742bde.401ab8",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": " set flow.gap_min, topic = max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gap_min",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "max",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1120,
+        "wires": [
+            [
+                "3dbce962.2a6dd6"
+            ]
+        ]
+    },
+    {
+        "id": "8e5b9057.ef482",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "calculate delta_min & delta_max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gap_max",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "gap_median",
+                "pt": "msg",
+                "to": "gap_median",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "gap_min",
+                "pt": "msg",
+                "to": "gap_min",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "delta_min",
+                "pt": "msg",
+                "to": "gap_min - gap_median",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "delta_max",
+                "pt": "msg",
+                "to": "gap_max - gap_median",
                 "tot": "jsonata"
             }
         ],
@@ -1676,10 +2044,535 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
-        "y": 480,
+        "x": 510,
+        "y": 1180,
         "wires": [
-            []
+            [
+                "292f61c3.0c6bce",
+                "165b09f4.a0f686"
+            ]
+        ]
+    },
+    {
+        "id": "165b09f4.a0f686",
+        "type": "ui_text",
+        "z": "98f04e36.3a6d",
+        "group": "9e1b54ba.5857b8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "delta_min",
+        "format": "{{msg.delta_min}}",
+        "layout": "row-spread",
+        "x": 900,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "292f61c3.0c6bce",
+        "type": "ui_text",
+        "z": "98f04e36.3a6d",
+        "group": "9e1b54ba.5857b8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "delta max",
+        "format": "{{msg.delta_max}}",
+        "layout": "row-spread",
+        "x": 900,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "f748e93b.75ea48",
+        "type": "ui_button",
+        "z": "98f04e36.3a6d",
+        "name": "",
+        "group": "a3f6904d.ff3a4",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "clear",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "clear",
+        "topicType": "str",
+        "x": 70,
+        "y": 760,
+        "wires": [
+            [
+                "32895f4d.f13a8"
+            ]
+        ]
+    },
+    {
+        "id": "de3e05e0.ed6ba8",
+        "type": "link out",
+        "z": "98f04e36.3a6d",
+        "name": "single keypress sequences",
+        "links": [
+            "5fb3586b.0da448",
+            "22856608.6c627a"
+        ],
+        "x": 375,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "5fb3586b.0da448",
+        "type": "link in",
+        "z": "98f04e36.3a6d",
+        "name": "to gap analysis",
+        "links": [
+            "de3e05e0.ed6ba8"
+        ],
+        "x": 115,
+        "y": 820,
+        "wires": [
+            [
+                "f98d2046.f8055"
+            ]
+        ]
+    },
+    {
+        "id": "32895f4d.f13a8",
+        "type": "link out",
+        "z": "98f04e36.3a6d",
+        "name": "button clear",
+        "links": [
+            "3bf9bf66.966be",
+            "8ee8c024.5b945"
+        ],
+        "x": 175,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "e191b86.6bb7748",
+        "type": "statistics",
+        "z": "98f04e36.3a6d",
+        "name": "col 1 statistics",
+        "dataSetSize": 0,
+        "inputField": "input",
+        "inputFieldType": "msg",
+        "resultField": "payload",
+        "resultFieldType": "msg",
+        "parameterField": "",
+        "parameterFieldType": "msg",
+        "stripFunction": false,
+        "resultOnly": true,
+        "x": 300,
+        "y": 1320,
+        "wires": [
+            [
+                "ddb022cd.627a1",
+                "3c0e1791.a1d2f8"
+            ]
+        ]
+    },
+    {
+        "id": "ddb022cd.627a1",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "gap statistics",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "7d26c35d.a2011c",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "duration col 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "input",
+                "pt": "msg",
+                "to": "(payload.sequence[1]).duration_microsec",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "size",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 1260,
+        "wires": [
+            [
+                "e191b86.6bb7748",
+                "89465e54.1898c"
+            ]
+        ]
+    },
+    {
+        "id": "89465e54.1898c",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "sequence gaps",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "3c0e1791.a1d2f8",
+        "type": "switch",
+        "z": "98f04e36.3a6d",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "size",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "median",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "min",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "max",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 270,
+        "y": 1500,
+        "wires": [
+            [
+                "58d53d40.0d6634"
+            ],
+            [
+                "d2b6fd1d.03491"
+            ],
+            [
+                "d5cc095b.73cc38"
+            ],
+            [
+                "eb84e191.a5fb3"
+            ]
+        ]
+    },
+    {
+        "id": "fb68549c.452788",
+        "type": "ui_text",
+        "z": "98f04e36.3a6d",
+        "group": "b9f27d7f.3c6aa",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "count",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 890,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "58d53d40.0d6634",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "topic = median",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "median",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 1420,
+        "wires": [
+            [
+                "fb68549c.452788",
+                "4dab4c08.c3e9b4",
+                "f6803955.c5d488"
+            ]
+        ]
+    },
+    {
+        "id": "11769f66.85d771",
+        "type": "ui_text",
+        "z": "98f04e36.3a6d",
+        "group": "b9f27d7f.3c6aa",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "median",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 900,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "4dab4c08.c3e9b4",
+        "type": "debug",
+        "z": "98f04e36.3a6d",
+        "name": "gap size",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "d2b6fd1d.03491",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": " set flow.col1_median, topic = min",
+        "rules": [
+            {
+                "t": "set",
+                "p": "col1_median",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "min",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 1480,
+        "wires": [
+            [
+                "11769f66.85d771",
+                "f6803955.c5d488"
+            ]
+        ]
+    },
+    {
+        "id": "8ee8c024.5b945",
+        "type": "link in",
+        "z": "98f04e36.3a6d",
+        "name": "gap statistics",
+        "links": [
+            "f6803955.c5d488",
+            "32895f4d.f13a8"
+        ],
+        "x": 155,
+        "y": 1320,
+        "wires": [
+            [
+                "e191b86.6bb7748"
+            ]
+        ]
+    },
+    {
+        "id": "f6803955.c5d488",
+        "type": "link out",
+        "z": "98f04e36.3a6d",
+        "name": "to gap statistics",
+        "links": [
+            "8ee8c024.5b945"
+        ],
+        "x": 755,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "d5cc095b.73cc38",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": " set flow.col1_min, topic = max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "col1_min",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "max",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1520,
+        "wires": [
+            [
+                "f6803955.c5d488"
+            ]
+        ]
+    },
+    {
+        "id": "eb84e191.a5fb3",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "calculate delta_min & delta_max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "col1_max",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "col1_median",
+                "pt": "msg",
+                "to": "col1_median",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "col1_min",
+                "pt": "msg",
+                "to": "col1_min",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "delta_min",
+                "pt": "msg",
+                "to": "col1_min - col1_median",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "delta_max",
+                "pt": "msg",
+                "to": "col1_max - col1_median",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1580,
+        "wires": [
+            [
+                "70069796.1d6cb8",
+                "514492de.c7857c"
+            ]
+        ]
+    },
+    {
+        "id": "514492de.c7857c",
+        "type": "ui_text",
+        "z": "98f04e36.3a6d",
+        "group": "b9f27d7f.3c6aa",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "delta_min",
+        "format": "{{msg.delta_min}}",
+        "layout": "row-spread",
+        "x": 900,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "70069796.1d6cb8",
+        "type": "ui_text",
+        "z": "98f04e36.3a6d",
+        "group": "b9f27d7f.3c6aa",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "delta max",
+        "format": "{{msg.delta_max}}",
+        "layout": "row-spread",
+        "x": 900,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "22856608.6c627a",
+        "type": "link in",
+        "z": "98f04e36.3a6d",
+        "name": "to gap analysis",
+        "links": [
+            "de3e05e0.ed6ba8"
+        ],
+        "x": 115,
+        "y": 1220,
+        "wires": [
+            [
+                "7d26c35d.a2011c"
+            ]
         ]
     }
 ]
