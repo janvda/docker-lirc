@@ -9,7 +9,7 @@
     {
         "id": "fd7141d6.f493b",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "example",
         "disabled": false,
         "info": ""
     },
@@ -609,7 +609,7 @@
                 "t": "set",
                 "p": "ui_control",
                 "pt": "msg",
-                "to": "/* {\t    \"customHeight\": 18,\t    \"tabulator\": {\t        \"layout\": \"fitColumns\",\t        \"movableColumns\": false,\t        \"index\": \"id\",\t        \"columns\": [\t            {\t                \"title\": \"ID\",\t                \"field\": \"id\",\t                \"formatter\": \"text\",\t                \"headerTooltip\": \"id number act as row index\"\t            },\t            {\t                \"formatterParams\": {\t                    \"outputFormat\": \"HH:mm:ss.SSS\",\t                    \"inputFormat\": \"x\",\t                    \"invalidPlaceholder\": \"(unknown)\"\t                },\t                \"title\": \"Timestamp\",\t                \"field\": \"timestamp\",\t                \"formatter\": \"datetime\",\t                \"headerTooltip\": \"timestamp of last change\"\t            },\t            {\t                \"title\": \"Text\",\t                \"field\": \"text\",\t                \"headerTooltip\": \"last cause of reboot (provided by http json request)\"\t            }\t        ]\t    }\t} */\t(\t$max_sequence_len := payload.(sequence~>$count())~>$max();\t{\t    \"customHeight\": 18,\t    \"tabulator\": {\t        /* \"layout\": \"fitColumns\", */\t        \"movableColumns\": false,\t        \"index\": \"id\",\t        \"columns\": [\t            {\t                \"title\": \"ID\",\t                \"field\": \"id\",\t                \"formatter\": \"text\",\t                \"headerTooltip\": \"id number act as row index\"\t            },\t            /* array of RC pulse/spaces */\t             [0.. $max_sequence_len].{\t                \"title\": $~>$string(),\t                \"field\": $~>$string(),\t                \"formatter\": \"text\"\t             }\t             ]\t    }\t}\t)",
+                "to": "(\t$max_sequence_len := payload.(sequence~>$count())~>$max();\t{\t    \"customHeight\": 18,\t    \"tabulator\": {\t        \"layout\": \"fitDataFill\",\t        \"movableColumns\": false,\t        \"index\": \"id\",\t        \"columns\": [\t            {\t                \"title\": \"ID\",\t                \"field\": \"id\",\t                \"formatter\": \"text\",\t                \"headerTooltip\": \"id number act as row index\"\t            },\t            /* array of RC pulse/spaces */\t             [0.. $max_sequence_len].{\t                \"title\": $~>$string(),\t                \"field\": $~>$string(),\t                \"align\":\"right\",\t                \"formatter\": \"text\"\t             }\t             ]\t    }\t}\t)",
                 "tot": "jsonata"
             }
         ],
