@@ -1,6 +1,8 @@
 {
     "dependencies": {
-        "node-red-node-daemon": "0.2.1"
+        "node-red-node-daemon": "0.2.1",
+        "node-red-dashboard": "2.29.1",
+        "node-red-node-ui-table": "0.3.10"
     },
     "node-red": {
         "settings": {
