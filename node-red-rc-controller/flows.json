@@ -121,7 +121,7 @@
     {
         "id": "a3f6904d.ff3a4",
         "type": "ui_group",
-        "name": "RC Key Press",
+        "name": "Last key press",
         "tab": "c6f1c674.61d028",
         "order": 1,
         "disp": true,
@@ -174,6 +174,16 @@
         "order": 3,
         "disp": true,
         "width": "4",
+        "collapse": false
+    },
+    {
+        "id": "ca2c9bdb.872518",
+        "type": "ui_group",
+        "name": "duration statistics",
+        "tab": "c6f1c674.61d028",
+        "order": 4,
+        "disp": true,
+        "width": "30",
         "collapse": false
     },
     {
@@ -593,7 +603,7 @@
         "name": "",
         "order": 1,
         "width": "40",
-        "height": "10",
+        "height": "5",
         "columns": [],
         "outputs": 0,
         "cts": false,
@@ -2786,15 +2796,20 @@
         "key": "topic",
         "joiner": "\\n",
         "joinerType": "str",
-        "accumulate": "false",
+        "accumulate": false,
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 1190,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1170,
         "y": 1180,
         "wires": [
             [
-                "8157bbef.41b3f8"
+                "8157bbef.41b3f8",
+                "f2dbad98.2be4c"
             ]
         ]
     },
@@ -2811,8 +2826,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1210,
-        "y": 1240,
+        "x": 1370,
+        "y": 1180,
         "wires": []
     },
     {
@@ -2829,29 +2844,29 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1260,
-        "y": 860,
+        "y": 880,
         "wires": []
     },
     {
         "id": "e98ef67b.2ce2a8",
         "type": "statistics",
         "z": "98f04e36.3a6d",
-        "name": "gap statistics",
+        "name": "size gap statistics",
         "dataSetSize": 0,
-        "inputField": "input",
+        "inputField": "payload.values",
         "inputFieldType": "msg",
-        "resultField": "ouput",
+        "resultField": "payload.size",
         "resultFieldType": "msg",
         "parameterField": "",
         "parameterFieldType": "msg",
         "stripFunction": false,
         "resultOnly": false,
-        "x": 1110,
-        "y": 1000,
+        "clearData": true,
+        "x": 1290,
+        "y": 940,
         "wires": [
             [
-                "6fa6c014.26741",
-                "ea6ec45d.a38f48"
+                "6eb283b2.4f71bc"
             ]
         ]
     },
@@ -2859,13 +2874,13 @@
         "id": "989bf305.577ba",
         "type": "change",
         "z": "98f04e36.3a6d",
-        "name": "",
+        "name": "msg.topic=size",
         "rules": [
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "clear",
+                "to": "size",
                 "tot": "str"
             }
         ],
@@ -2883,75 +2898,6 @@
         ]
     },
     {
-        "id": "6fa6c014.26741",
-        "type": "switch",
-        "z": "98f04e36.3a6d",
-        "name": "",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "clear",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "size",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "median",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "min",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "max",
-                "vt": "str"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 5,
-        "x": 1070,
-        "y": 1100,
-        "wires": [
-            [
-                "df881ee2.06d64",
-                "a7358815.833bd8"
-            ],
-            [
-                "1af3b0cc.473a6f"
-            ],
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "df881ee2.06d64",
-        "type": "debug",
-        "z": "98f04e36.3a6d",
-        "name": "cleared",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 1040,
-        "wires": []
-    },
-    {
         "id": "ea6ec45d.a38f48",
         "type": "debug",
         "z": "98f04e36.3a6d",
@@ -2964,28 +2910,44 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1320,
-        "y": 980,
+        "x": 1530,
+        "y": 1060,
         "wires": []
     },
     {
-        "id": "a7358815.833bd8",
+        "id": "82bbb9fa.378688",
+        "type": "statistics",
+        "z": "98f04e36.3a6d",
+        "name": "median gap statistics",
+        "dataSetSize": 0,
+        "inputField": "payload.values",
+        "inputFieldType": "msg",
+        "resultField": "payload.median",
+        "resultFieldType": "msg",
+        "parameterField": "",
+        "parameterFieldType": "msg",
+        "stripFunction": false,
+        "resultOnly": false,
+        "clearData": true,
+        "x": 1300,
+        "y": 980,
+        "wires": [
+            [
+                "546a4f34.6ff91"
+            ]
+        ]
+    },
+    {
+        "id": "6eb283b2.4f71bc",
         "type": "change",
         "z": "98f04e36.3a6d",
-        "name": "",
+        "name": "msg.topic=size",
         "rules": [
-            {
-                "t": "set",
-                "p": "input",
-                "pt": "msg",
-                "to": "payload.values",
-                "tot": "msg"
-            },
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "size",
+                "to": "median",
                 "tot": "str"
             }
         ],
@@ -2994,29 +2956,302 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1300,
-        "y": 1080,
+        "x": 1100,
+        "y": 980,
         "wires": [
             [
-                "e98ef67b.2ce2a8"
+                "82bbb9fa.378688"
             ]
         ]
     },
     {
-        "id": "1af3b0cc.473a6f",
-        "type": "debug",
+        "id": "bc30e32c.e2615",
+        "type": "statistics",
         "z": "98f04e36.3a6d",
-        "name": "size",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
+        "name": "min gap statistics",
+        "dataSetSize": 0,
+        "inputField": "payload.values",
+        "inputFieldType": "msg",
+        "resultField": "payload.min",
+        "resultFieldType": "msg",
+        "parameterField": "",
+        "parameterFieldType": "msg",
+        "stripFunction": false,
+        "resultOnly": false,
+        "clearData": true,
+        "x": 1290,
+        "y": 1020,
+        "wires": [
+            [
+                "2f6f400b.623af"
+            ]
+        ]
+    },
+    {
+        "id": "546a4f34.6ff91",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "msg.topic=min",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "min",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100,
+        "y": 1020,
+        "wires": [
+            [
+                "bc30e32c.e2615"
+            ]
+        ]
+    },
+    {
+        "id": "2cee3cff.d08f94",
+        "type": "statistics",
+        "z": "98f04e36.3a6d",
+        "name": "max gap statistics",
+        "dataSetSize": 0,
+        "inputField": "payload.values",
+        "inputFieldType": "msg",
+        "resultField": "payload.max",
+        "resultFieldType": "msg",
+        "parameterField": "",
+        "parameterFieldType": "msg",
+        "stripFunction": false,
+        "resultOnly": false,
+        "clearData": true,
+        "x": 1290,
+        "y": 1060,
+        "wires": [
+            [
+                "ea6ec45d.a38f48",
+                "c9d13770.861458"
+            ]
+        ]
+    },
+    {
+        "id": "2f6f400b.623af",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "msg.topic=max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "max",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100,
+        "y": 1060,
+        "wires": [
+            [
+                "2cee3cff.d08f94"
+            ]
+        ]
+    },
+    {
+        "id": "c9d13770.861458",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.delta_min",
+                "pt": "msg",
+                "to": "payload.min - payload.median",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.delta_max",
+                "pt": "msg",
+                "to": "payload.max - payload.median",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
         "x": 1260,
         "y": 1120,
+        "wires": [
+            [
+                "44e06cf4.50d3f4"
+            ]
+        ]
+    },
+    {
+        "id": "f2dbad98.2be4c",
+        "type": "ui_table",
+        "z": "98f04e36.3a6d",
+        "group": "ca2c9bdb.872518",
+        "name": "Marks & Space duration statistics",
+        "order": 1,
+        "width": "13",
+        "height": "16",
+        "columns": [
+            {
+                "field": "key",
+                "title": "index",
+                "width": "",
+                "align": "right",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "size",
+                "title": "count",
+                "width": "",
+                "align": "right",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "median",
+                "title": "median",
+                "width": "",
+                "align": "right",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "delta_min",
+                "title": "delta_min",
+                "width": "",
+                "align": "right",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "delta_max",
+                "title": "delta_max",
+                "width": "",
+                "align": "right",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1480,
+        "y": 1260,
         "wires": []
+    },
+    {
+        "id": "a0397f47.515e6",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "table rows input",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "(payload.{\t  \"sequence\" : sequence#$i.{ \"\" & $i : $.type= \"space\" \t                                          ? - $.duration_microsec \t                                          :$.duration_microsec }~>$merge()\t}).sequence",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 1260,
+        "wires": [
+            [
+                "f2dbad98.2be4c"
+            ]
+        ]
+    },
+    {
+        "id": "c0cc60de.a8a03",
+        "type": "ui_button",
+        "z": "98f04e36.3a6d",
+        "name": "",
+        "group": "a3f6904d.ff3a4",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "clear keypresses",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "topicType": "str",
+        "x": 1110,
+        "y": 1340,
+        "wires": [
+            [
+                "e447f323.075fd"
+            ]
+        ]
+    },
+    {
+        "id": "e447f323.075fd",
+        "type": "change",
+        "z": "98f04e36.3a6d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[]",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "key_presses",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1340,
+        "y": 1340,
+        "wires": [
+            [
+                "f2dbad98.2be4c"
+            ]
+        ]
     }
 ]
